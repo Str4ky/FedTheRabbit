@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Straky Web</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=0.5">
+		<meta content="Fed the rabbit" property="og:title">
+		<meta content="A useless website made by $traker" property="og:description">
+		<meta content="" property="og:url">
+		<meta content="rabbit.png" property="og:image">
+		<meta content="#9EABB1" data-react-helmet="true" name="theme-color">
+		<link rel="icon" type="image/png" href="rabbit.png" />
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    </head>
+
+    <body>
+        <center>
+            <div id="imageGallery" style="padding-top: 198px;">
+                <img alt="rabbit" src="rabbit.png" />
+    
+                <div id="imgClickAndChange"> <img alt="carrot" id="image" style="margin-left: -328px;" src="carrot1.png" /></div></div>
+
+                <label id="text"></label>
+        </center>
+    </body>
+</html>
+
+<script>
+
+$( document ).ready(function() {
+
+var images = [
+    "carrot1.png",
+    "carrot2.png",
+    "carrot3.png",
+    "carrot4.png",
+    "carrot5.png"    
+];
+
+var imageIndex = 0;
+
+$("#imgClickAndChange").on("click", function(){
+            imageIndex = (imageIndex+1) % (images.length);    
+            $("#image").attr('src', images[imageIndex]);
+
+            if (imageIndex == 0) {
+            document.getElementById('text').innerHTML = '';
+            }
+            else if (imageIndex == 4) {
+            document.getElementById('text').innerHTML = 'Congrats, you fed the rabbit. Click to restart';
+            }
+        });
+
+        $("#image").attr(images[0]);
+    });
+</script>
+
+<style>
+    * {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        background-color: #121212;
+        color: white;
+        font-size: 24;
+    }
+</style>
