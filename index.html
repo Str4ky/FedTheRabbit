@@ -1,10 +1,10 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Feed the rabbit</title>
+		<title>Straky Web</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=0.5">
-		<meta content="Feed the rabbit" property="og:title">
+		<meta content="Fed the rabbit" property="og:title">
 		<meta content="A useless website made by $traker" property="og:description">
 		<meta content="" property="og:url">
 		<meta content="rabbit.png" property="og:image">
@@ -19,6 +19,8 @@
                 <img alt="rabbit" src="rabbit.png" />
     
                 <div id="imgClickAndChange"> <img alt="carrot" id="image" style="margin-left: -328px;" src="carrot1.png" /></div></div>
+
+                <label id="score">Eaten carrots : 0</label><br><br>
 
                 <label id="text"></label>
         </center>
@@ -38,6 +40,8 @@ var images = [
 
 var imageIndex = 0;
 
+var score = 0;
+
 $("#imgClickAndChange").on("click", function(){
             imageIndex = (imageIndex+1) % (images.length);    
             $("#image").attr('src', images[imageIndex]);
@@ -47,6 +51,9 @@ $("#imgClickAndChange").on("click", function(){
             }
             else if (imageIndex == 4) {
             document.getElementById('text').innerHTML = 'Congrats, you fed the rabbit. Click to restart';
+
+            score = score + 1;
+            document.getElementById('score').innerHTML = 'Eaten carrots : ' + score;
             }
         });
 
