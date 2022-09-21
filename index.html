@@ -43,6 +43,8 @@ var imageIndex = 0;
 
 var score = 0;
 
+var audio = new Audio('crunch.mp3');
+	
 $("#imgClickAndChange").on("click", function(){
             imageIndex = (imageIndex+1) % (images.length);    
             $("#image").attr('src', images[imageIndex]);
@@ -56,6 +58,9 @@ $("#imgClickAndChange").on("click", function(){
             score = score + 1;
             document.getElementById('score').innerHTML = 'Eaten carrots : ' + score;
             }
+	    else if (imageIndex != 0) {
+	    audio.play();
+	    }
         });
 
         $("#image").attr(images[0]);
