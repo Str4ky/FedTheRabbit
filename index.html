@@ -43,7 +43,7 @@ var imageIndex = 0;
 
 var score = 0;
 
-var audio = new Audio('crunch.mp3');
+var variations = 0;
 	
 $("#imgClickAndChange").on("click", function(){
             imageIndex = (imageIndex+1) % (images.length);    
@@ -54,13 +54,26 @@ $("#imgClickAndChange").on("click", function(){
             }
             else if (imageIndex == 4) {
             document.getElementById('text').innerHTML = 'Congrats, you fed the rabbit. Click to restart';
-	    audio.play();
+	        
+            variations = Math.floor(Math.random() * 5) + 1;
+            
+            var file = "crunch" + variations + ".mp3";
+
+            var audio = new Audio(file);
+            
+            audio.play();
 		    
             score = score + 1;
             document.getElementById('score').innerHTML = 'Eaten carrots : ' + score;
             }
 	    else if (imageIndex != 0) {
-	    audio.play();
+            variations = Math.floor(Math.random() * 5) + 1;
+            
+            var file = "crunch" + variations + ".mp3";
+
+            var audio = new Audio(file);
+            
+            audio.play();
 	    }
         });
 
