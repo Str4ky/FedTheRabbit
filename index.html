@@ -54,11 +54,12 @@ $("#imgClickAndChange").on("click", function(){
             }
             else if (imageIndex == 4) {
             document.getElementById('text').innerHTML = 'Congrats, you fed the rabbit. Click to restart';
-
+	    audio.play();
+		    
             score = score + 1;
             document.getElementById('score').innerHTML = 'Eaten carrots : ' + score;
             }
-	    else if (imageIndex != 4) {
+	    else if (imageIndex != 0) {
 	    audio.play();
 	    }
         });
